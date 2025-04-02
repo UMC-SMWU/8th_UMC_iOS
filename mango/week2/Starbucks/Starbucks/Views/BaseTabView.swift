@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct BaseTabView: View {
+    
     var body: some View {
         TabView {
-            Tab("Home", image: "Home") {
+            Tab("Home", image: "home") {
                 HomeView()
             }
-            Tab("Pay", image: "Pay") {
+            Tab("Pay", image: "pay") {
                 PayView()
             }
-            Tab("Order", image: "Order") {
+            Tab("Order", image: "order") {
                 OrderView()
             }
-            Tab("Shop", image: "Shop") {
+            Tab("Shop", image: "shop") {
                 ShopView()
             }
-            Tab("Other", image: "Other") {
+            Tab("Other", image: "other") {
                 OtherView()
             }
         }
-        .tint(.green01)
+        .tint(.green02)
         .onAppear {
             UITabBar.appearance().backgroundColor = .white
         }

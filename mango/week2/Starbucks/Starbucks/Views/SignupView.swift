@@ -12,32 +12,20 @@ struct SignupView: View {
     
     var body: some View {
         VStack {
-            middleView
-            
+            mainMiddleGroup
             Spacer()
-            
-            Button(action: {
-                viewModel.saveAppStorage()
-            }, label: {
-                Text("생성하기")
-                    .font(.PretendardMedium18)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: 402, maxHeight: 58)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.green01)
-                    )
-            })
+            createButton
         }
         .padding(.top, 210)
+        .padding(.bottom, 72)
         .padding(.horizontal, 19)
     }
     
-    private var middleView: some View {
+    private var mainMiddleGroup: some View {
         VStack(alignment: .leading, spacing: 49) {
             TextField("닉네임", text: $viewModel.signupModel.nickname)
-                .font(.PretendardRegular18)
-                .foregroundStyle(.black01)
+                .font(.mainTextRegular18)
+                .foregroundStyle(Color.black01)
                 .autocapitalization(.none)
                 .overlay(alignment: .bottom, content: {
                     Divider()
@@ -47,8 +35,8 @@ struct SignupView: View {
                 })
             
             TextField("이메일", text: $viewModel.signupModel.email)
-                .font(.PretendardRegular18)
-                .foregroundStyle(.black01)
+                .font(.mainTextRegular18)
+                .foregroundStyle(Color.black01)
                 .keyboardType(.emailAddress)
                 .autocapitalization(.none)
                 .overlay(alignment: .bottom) {
@@ -58,9 +46,9 @@ struct SignupView: View {
                         .offset(x: 0, y: 9)
                 }
             
-            TextField("비밀번호", text: $viewModel.signupModel.pwd)
-                .font(.PretendardRegular18)
-                .foregroundStyle(.black01)
+            SecureField("비밀번호", text: $viewModel.signupModel.pwd)
+                .font(.mainTextRegular18)
+                .foregroundStyle(Color.black01)
                 .autocapitalization(.none)
                 .overlay(alignment: .bottom) {
                     Divider()
@@ -69,6 +57,20 @@ struct SignupView: View {
                         .offset(x: 0, y: 9)
                 }
         }
+    }
+    private var createButton: some View {
+        Button(action: {
+            viewModel.saveAppStorage()
+        }, label: {
+            Text("생성하기")
+                .font(.mainTextMedium18)
+                .foregroundStyle(.white)
+                .frame(maxWidth: 402, maxHeight: 58)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.green01)
+                )
+        })
     }
 }
 

@@ -21,8 +21,8 @@ struct OtherView: View {
     private var topView: some View {
         HStack {
             Text("Other")
-                .foregroundStyle(.black)
-                .font(.pretendardBold(24))
+                .font(.mainTextBold24)
+                .foregroundStyle(Color.black00)
             
             Spacer()
                 .frame(width: 295)
@@ -35,7 +35,7 @@ struct OtherView: View {
                     .frame(width: 35, height: 35)
             })
         }
-        .background(.white)
+        .background(Color.white00)
     }
     
     private var contentView: some View {
@@ -51,8 +51,8 @@ struct OtherView: View {
             supportView
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.vertical, 41)
-        .background(.white01)
+        .padding(.top, 41)
+        .background(Color.white01)
     }
     
     private var infoView: some View {
@@ -60,21 +60,21 @@ struct OtherView: View {
             VStack(spacing: 5) {
                 HStack {
                     Text(nickname)
-                        .foregroundStyle(.green01)
-                        .font(.pretendardSemiBold(24))
+                        .foregroundStyle(Color.green01)
+                        .font(.mainTextSemiBold24)
                     Text("님")
-                        .foregroundStyle(.black02)
-                        .font(.pretendardSemiBold(24))
+                        .foregroundStyle(Color.black02)
+                        .font(.mainTextSemiBold24)
                 }
                 Text("환영합니다! 🙌🏻")
-                    .foregroundStyle(.black02)
-                    .font(.pretendardSemiBold(24))
+                    .foregroundStyle(Color.black02)
+                    .font(.mainTextSemiBold24)
             }
             
             HStack(spacing: 10.5) {
-                InfoButton(icon: Image("star"), title: "별 히스토리")
-                InfoButton(icon: Image("receipt"), title: "전자영수증")
-                InfoButton(icon: Image("myCup"), title: "나만의 메뉴")
+                otherButton(icon: Image("star"), title: "별 히스토리")
+                otherButton(icon: Image("receipt"), title: "전자영수증")
+                otherButton(icon: Image("mycup"), title: "나만의 메뉴")
             }
             .padding(.top, 24)
         }
@@ -83,30 +83,30 @@ struct OtherView: View {
     private var payView: some View {
         VStack(alignment: .leading) {
             Text("Pay")
-                .font(.pretendardSemiBold(18))
+                .font(.mainTextSemiBold18)
                 .padding(.bottom, 8)
             
             HStack {
-                listItem(icon: Image("icon 1"), content: "스타벅스 카드 등록")
+                otherList(icon: Image("icon1"), title: "스타벅스 카드 등록")
                 
                 Spacer()
                 
-                listItem(icon: Image("icon 2"), content: "카드 교환권 등록")
+                otherList(icon: Image("icon2"), title: "카드 교환권 등록")
             }
             .padding(.vertical, 16)
             
             HStack {
-                listItem(icon: Image("icon 3"), content: "쿠폰 등록")
+                otherList(icon: Image("icon3"), title: "쿠폰 등록")
                 
                 Spacer()
                 
-                listItem(icon: Image("icon 4"), content: "쿠폰 히스토리")
+                otherList(icon: Image("icon4"), title: "쿠폰 히스토리")
             }
             .padding(.vertical, 16)
         }
         .overlay(alignment: .bottom) {
             Divider()
-                .background(Color.black.opacity(0.12))
+                .background(Color.black00.opacity(0.12))
         }
         .padding(.horizontal, 10)
     }
@@ -114,33 +114,35 @@ struct OtherView: View {
     private var supportView: some View {
         VStack(alignment: .leading) {
             Text("고객지원")
-                .font(.pretendardSemiBold(18))
-            
+                .font(.mainTextSemiBold18)
+                .padding(.bottom, 8)
+
             HStack {
-                listItem(icon: Image("icon 5"), content: "스토어 케어")
+                otherList(icon: Image("icon5"), title: "스토어 케어")
                 
                 Spacer()
                 
-                listItem(icon:Image("icon 6"), content: "고객의 소리")
+                otherList(icon:Image("icon6"), title: "고객의 소리")
             }
             .padding(.vertical, 16)
             
             HStack {
-                listItem(icon: Image("icon 7"), content: "매장 정보")
+                otherList(icon: Image("icon7"), title: "매장 정보")
                 
                 Spacer()
                 
-                listItem(icon: Image("icon 8"), content: "반납기 정보")
+                otherList(icon: Image("icon8"), title: "반납기 정보")
             }
             .padding(.vertical, 16)
             
             HStack {
-                listItem(icon: Image("icon 9"), content: "마이 스타벅스 리뷰")
+                otherList(icon: Image("icon9"), title: "마이 스타벅스 리뷰")
                 
                 Spacer()
             }
             .padding(.vertical, 16)
         }
+        .padding(.bottom, 41)
         .padding(.horizontal, 10)
     }
 }
