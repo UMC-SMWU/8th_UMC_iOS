@@ -10,6 +10,7 @@ import SwiftUI
 
 struct OtherView: View {
     @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
+    @Environment(NavigationRouter.self) private var router
     
     var body: some View {
         VStack {
@@ -29,6 +30,7 @@ struct OtherView: View {
             
             Button(action: {
                 print("로그아웃")
+                router.push(.login)
             }, label: {
                 Image("logout")
                     .resizable()
