@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct otherList
-: View {
+struct otherList: View {
     let icon: Image
     let title: String
     
@@ -25,7 +24,7 @@ struct otherList
                 icon
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 25, maxHeight: 25)
+                    .frame(maxWidth: 32, maxHeight: 32)
                 Text(title)
                     .font(.mainTextSemiBold16)
                 

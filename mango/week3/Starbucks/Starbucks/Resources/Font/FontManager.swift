@@ -43,8 +43,16 @@ extension Font {
         return PretendardFont.bold.font(size: 24)
     }
 
+    static var mainTextBold22: Font {
+        return PretendardFont.bold.font(size: 22)
+    }
+    
     static var mainTextBold20: Font {
         return PretendardFont.bold.font(size: 20)
+    }
+    
+    static var mainTextBold16: Font {
+        return PretendardFont.bold.font(size: 16)
     }
     
     static var mainTextBold15: Font {
@@ -74,6 +82,10 @@ extension Font {
     
     static var mainTextSemiBold13: Font {
         return PretendardFont.semiBold.font(size: 13)
+    }
+    
+    static var mainTextSemiBold12: Font {
+        return PretendardFont.semiBold.font(size: 12)
     }
     
     // MARK: MainText - Medium
