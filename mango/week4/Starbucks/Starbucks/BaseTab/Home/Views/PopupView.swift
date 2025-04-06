@@ -21,7 +21,7 @@ struct PopupView: View {
             detailButton
             closeButton
         }
-        .padding(.bottom, 36)
+        .padding(.bottom, 20)
     }
     
     private var detailButton: some View {
@@ -37,6 +37,7 @@ struct PopupView: View {
                         .fill(Color.green01)
                 )
         })
+        .padding(.top, 10)
         .padding(.horizontal, 18)
     }
     
@@ -52,7 +53,7 @@ struct PopupView: View {
                     .foregroundStyle(Color.gray05)
             })
         }
-        .padding(.top, 19)
+        .padding(.top, 10)
         .padding(.trailing, 37)
     }
 }

@@ -11,7 +11,7 @@ struct HomeView: View {
     @AppStorage("nickname") private var nickname: String = "(설정 닉네임)"
     @Environment(HomeViewModel.self) var viewModel
     @Environment(NavigationRouter.self) private var router
-    
+    @State private var showPopup = true
     
     var body: some View {
         ScrollView {
@@ -19,7 +19,7 @@ struct HomeView: View {
             
             contentView
         }
-        .ignoresSafeArea(.all)
+        .ignoresSafeArea(edges: .top)
     }
     
     private var topBannerView: some View {
@@ -235,6 +235,12 @@ struct HomeView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity, minHeight: 182)
+        }
+        .onAppear {
+            showPopup = true
+        }
+        .sheet(isPresented: $showPopup) {
+            PopupView()
         }
     }
 }
