@@ -7,32 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		800C4F6E2D9A6BE200F05CF9 /* 3rd_Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3rd_Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		800C55972DA3250A00F05CF9 /* 3rd_Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3rd_Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		800C4F802D9A6BE300F05CF9 /* Exceptions for "3rd_Practice" folder in "3rd_Practice" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 800C4F6D2D9A6BE200F05CF9 /* 3rd_Practice */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		800C4F702D9A6BE200F05CF9 /* 3rd_Practice */ = {
+		800C55992DA3250A00F05CF9 /* 3rd_Practice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				800C4F802D9A6BE300F05CF9 /* Exceptions for "3rd_Practice" folder in "3rd_Practice" target */,
-			);
 			path = 3rd_Practice;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		800C4F6B2D9A6BE200F05CF9 /* Frameworks */ = {
+		800C55942DA3250A00F05CF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		800C4F652D9A6BE200F05CF9 = {
+		800C558E2DA3250A00F05CF9 = {
 			isa = PBXGroup;
 			children = (
-				800C4F702D9A6BE200F05CF9 /* 3rd_Practice */,
-				800C4F6F2D9A6BE200F05CF9 /* Products */,
+				800C55992DA3250A00F05CF9 /* 3rd_Practice */,
+				800C55982DA3250A00F05CF9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		800C4F6F2D9A6BE200F05CF9 /* Products */ = {
+		800C55982DA3250A00F05CF9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				800C4F6E2D9A6BE200F05CF9 /* 3rd_Practice.app */,
+				800C55972DA3250A00F05CF9 /* 3rd_Practice.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		800C4F6D2D9A6BE200F05CF9 /* 3rd_Practice */ = {
+		800C55962DA3250A00F05CF9 /* 3rd_Practice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 800C4F812D9A6BE300F05CF9 /* Build configuration list for PBXNativeTarget "3rd_Practice" */;
+			buildConfigurationList = 800C55A52DA3250B00F05CF9 /* Build configuration list for PBXNativeTarget "3rd_Practice" */;
 			buildPhases = (
-				800C4F6A2D9A6BE200F05CF9 /* Sources */,
-				800C4F6B2D9A6BE200F05CF9 /* Frameworks */,
-				800C4F6C2D9A6BE200F05CF9 /* Resources */,
+				800C55932DA3250A00F05CF9 /* Sources */,
+				800C55942DA3250A00F05CF9 /* Frameworks */,
+				800C55952DA3250A00F05CF9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				800C4F702D9A6BE200F05CF9 /* 3rd_Practice */,
+				800C55992DA3250A00F05CF9 /* 3rd_Practice */,
 			);
 			name = 3rd_Practice;
 			packageProductDependencies = (
 			);
 			productName = 3rd_Practice;
-			productReference = 800C4F6E2D9A6BE200F05CF9 /* 3rd_Practice.app */;
+			productReference = 800C55972DA3250A00F05CF9 /* 3rd_Practice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		800C4F662D9A6BE200F05CF9 /* Project object */ = {
+		800C558F2DA3250A00F05CF9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					800C4F6D2D9A6BE200F05CF9 = {
+					800C55962DA3250A00F05CF9 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 800C4F692D9A6BE200F05CF9 /* Build configuration list for PBXProject "3rd_Practice" */;
+			buildConfigurationList = 800C55922DA3250A00F05CF9 /* Build configuration list for PBXProject "3rd_Practice" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 800C4F652D9A6BE200F05CF9;
+			mainGroup = 800C558E2DA3250A00F05CF9;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 800C4F6F2D9A6BE200F05CF9 /* Products */;
+			productRefGroup = 800C55982DA3250A00F05CF9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				800C4F6D2D9A6BE200F05CF9 /* 3rd_Practice */,
+				800C55962DA3250A00F05CF9 /* 3rd_Practice */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		800C4F6C2D9A6BE200F05CF9 /* Resources */ = {
+		800C55952DA3250A00F05CF9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		800C4F6A2D9A6BE200F05CF9 /* Sources */ = {
+		800C55932DA3250A00F05CF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,61 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		800C4F822D9A6BE300F05CF9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = 3rd_Practice/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seo1v.-rd-Practice";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		800C4F832D9A6BE300F05CF9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = 3rd_Practice/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seo1v.-rd-Practice";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		800C4F842D9A6BE300F05CF9 /* Debug */ = {
+		800C55A32DA3250B00F05CF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -255,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		800C4F852D9A6BE300F05CF9 /* Release */ = {
+		800C55A42DA3250B00F05CF9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -311,28 +244,84 @@
 			};
 			name = Release;
 		};
+		800C55A62DA3250B00F05CF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"3rd_Practice/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seo1v.-rd-Practice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		800C55A72DA3250B00F05CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"3rd_Practice/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seo1v.-rd-Practice";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		800C4F692D9A6BE200F05CF9 /* Build configuration list for PBXProject "3rd_Practice" */ = {
+		800C55922DA3250A00F05CF9 /* Build configuration list for PBXProject "3rd_Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				800C4F842D9A6BE300F05CF9 /* Debug */,
-				800C4F852D9A6BE300F05CF9 /* Release */,
+				800C55A32DA3250B00F05CF9 /* Debug */,
+				800C55A42DA3250B00F05CF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		800C4F812D9A6BE300F05CF9 /* Build configuration list for PBXNativeTarget "3rd_Practice" */ = {
+		800C55A52DA3250B00F05CF9 /* Build configuration list for PBXNativeTarget "3rd_Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				800C4F822D9A6BE300F05CF9 /* Debug */,
-				800C4F832D9A6BE300F05CF9 /* Release */,
+				800C55A62DA3250B00F05CF9 /* Debug */,
+				800C55A72DA3250B00F05CF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 800C4F662D9A6BE200F05CF9 /* Project object */;
+	rootObject = 800C558F2DA3250A00F05CF9 /* Project object */;
 }
