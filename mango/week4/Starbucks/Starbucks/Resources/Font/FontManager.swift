@@ -68,6 +68,10 @@ extension Font {
         return PretendardFont.semiBold.font(size: 24)
     }
     
+    static var mainTextSemiBold22: Font {
+        return PretendardFont.semiBold.font(size: 22)
+    }
+    
     static var mainTextSemiBold18: Font {
         return PretendardFont.semiBold.font(size: 18)
     }
