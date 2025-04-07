@@ -9,30 +9,52 @@ import SwiftUI
 
 struct CustomNavBar: View {
     let viewTitle: String
-    let backButton: (() -> Void)
-        
-    init(viewTitle: String, backButton: @escaping (() -> Void)) {
-        self.viewTitle = viewTitle
-        self.backButton = backButton
-    }
+    var showBackButton: Bool = true
+    var showPlusButton: Bool = false
+    var backAction: (() -> Void)? = nil
+    var plusAction: (() -> Void)? = nil
     
     var body: some View {
         HStack {
-            Button(action : {
-                backButton()
-            }) {
-                Image("backbutton")
-                    .foregroundStyle(.black)
-                    .frame(width: 24, height: 24)
+            
+            if showBackButton {
+                Button(action: {
+                    backAction?()
+                }) {
+                    Image("backbutton")
+                        .resizable()
+                        .foregroundStyle(.black)
+                        .frame(width: 10, height: 16)
+                }
+            } else {
+                Spacer().frame(width: 16)
             }
+            
             Spacer()
+            
             Text(viewTitle)
                 .font(.mainTextMedium16)
+            
             Spacer()
-            Rectangle()
-                .fill(.clear)
-                .frame(width: 24, height: 24)
+            
+            if showPlusButton {
+                Button(action: {
+                    plusAction?()
+                }) {
+                    Image("plusbutton")
+                        .resizable()
+                        .foregroundStyle(.black)
+                        .frame(width: 16, height: 16)
+                }
+            } else {
+                Spacer().frame(width: 16)
+            }
+            
         }
-        .padding(.horizontal, 19)
+        .padding(.horizontal, 15)
+        .padding(.top, 15)
+        .padding(.bottom, 22)
+        .background(Color.white00)
+        .frame(maxWidth: .infinity, minHeight: 96)
     }
 }

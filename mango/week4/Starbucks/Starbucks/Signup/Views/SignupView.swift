@@ -14,9 +14,17 @@ struct SignupView: View {
     
     var body: some View {
         VStack {
-            CustomNavBar(viewTitle: "가입하기") {
-                router.pop()
-            }
+            CustomNavBar(
+                viewTitle: "가입하기",
+                showBackButton: true,
+                showPlusButton: false,
+                backAction: {
+                    router.pop()
+                },
+                plusAction: {
+                    print("")
+                }
+            )
         }
         .padding(.bottom, 130)
         VStack {
