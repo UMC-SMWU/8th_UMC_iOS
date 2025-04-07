@@ -10,6 +10,7 @@ import SwiftUI
 struct AppRootView: View {
     @State private var router = NavigationRouter()
     @State private var viewModel = HomeViewModel()
+    @State private var shopviewModel = ShopViewModel()
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -30,6 +31,7 @@ struct AppRootView: View {
                         BaseTabView()
                             .environment(router)
                             .environment(viewModel)
+                            .environment(shopviewModel)
                             .navigationBarHidden(true)
                     case .coffeedetail:
                         CoffeeDetailView()
