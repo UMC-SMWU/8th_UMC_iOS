@@ -236,9 +236,10 @@ struct HomeView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity, minHeight: 182)
         }
-        .onAppear {
-            showPopup = true
-        }
+        // Home화면 방문할 때마다 팝업 뜨도록 설정
+//        .onAppear {
+//            showPopup = true
+//        }
         .sheet(isPresented: $showPopup) {
             PopupView()
         }
