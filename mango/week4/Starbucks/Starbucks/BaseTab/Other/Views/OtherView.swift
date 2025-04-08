@@ -75,7 +75,9 @@ struct OtherView: View {
             
             HStack(spacing: 10.5) {
                 otherButton(icon: Image("star"), title: "별 히스토리")
-                otherButton(icon: Image("receipt"), title: "전자영수증")
+                otherButton(icon: Image("receipt"), title: "전자영수증") {
+                    router.push(.receipt)
+                }
                 otherButton(icon: Image("mycup"), title: "나만의 메뉴")
             }
             .padding(.top, 24)

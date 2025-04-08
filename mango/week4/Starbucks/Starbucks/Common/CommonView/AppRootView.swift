@@ -38,6 +38,11 @@ struct AppRootView: View {
                             .environment(router)
                             .environment(viewModel)
                             .navigationBarHidden(true)
+                    case .receipt:
+                        ReceiptView()
+                            .environment(router)
+                            .navigationBarHidden(true)
+                            .modelContainer(for: ReceiptModel.self)
                     }
                 }
         }

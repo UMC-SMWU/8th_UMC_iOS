@@ -10,16 +10,16 @@ import SwiftUI
 struct otherButton: View {
     let icon: Image
     let title: String
+    let action: () -> Void
     
-    init(icon: Image, title: String) {
+    init(icon: Image, title: String, action: @escaping () -> Void = {}) {
         self.icon = icon
         self.title = title
+        self.action = action
     }
     
     var body: some View {
-        Button(action: {
-            print(title)
-        }, label: {
+        Button(action: action) {
             RoundedRectangle(cornerRadius: 15)
                 .fill(Color.white00)
                 .frame(width: 102, height: 108)
@@ -36,6 +36,6 @@ struct otherButton: View {
                             .foregroundStyle(Color.black03)
                     }
                 })
-        })
+        }
     }
 }
