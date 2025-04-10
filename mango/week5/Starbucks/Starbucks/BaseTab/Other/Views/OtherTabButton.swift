@@ -1,5 +1,5 @@
 //
-//  otherButton.swift
+//  OtherTabButton.swift
 //  Starbucks
 //
 //  Created by 엄민서 on 3/31/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct otherButton: View {
+struct OtherTabButton: View {
     let icon: Image
     let title: String
     let action: () -> Void

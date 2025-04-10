@@ -1,5 +1,5 @@
 //
-//  otherList.swift
+//  OtherTabList.swift
 //  Starbucks
 //
 //  Created by 엄민서 on 3/31/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct otherList: View {
+struct OtherTabList: View {
     let icon: Image
     let title: String
     

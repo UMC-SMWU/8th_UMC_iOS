@@ -74,11 +74,11 @@ struct OtherView: View {
             }
             
             HStack(spacing: 10.5) {
-                otherButton(icon: Image("star"), title: "별 히스토리")
-                otherButton(icon: Image("receipt"), title: "전자영수증") {
+                OtherTabButton(icon: Image("star"), title: "별 히스토리")
+                OtherTabButton(icon: Image("receipt"), title: "전자영수증") {
                     router.push(.receipt)
                 }
-                otherButton(icon: Image("mycup"), title: "나만의 메뉴")
+                OtherTabButton(icon: Image("mycup"), title: "나만의 메뉴")
             }
             .padding(.top, 24)
         }
@@ -91,20 +91,20 @@ struct OtherView: View {
                 .padding(.bottom, 8)
             
             HStack {
-                otherList(icon: Image("icon1"), title: "스타벅스 카드 등록")
+                OtherTabList(icon: Image("icon1"), title: "스타벅스 카드 등록")
                 
                 Spacer()
                 
-                otherList(icon: Image("icon2"), title: "카드 교환권 등록")
+                OtherTabList(icon: Image("icon2"), title: "카드 교환권 등록")
             }
             .padding(.vertical, 16)
             
             HStack {
-                otherList(icon: Image("icon3"), title: "쿠폰 등록")
+                OtherTabList(icon: Image("icon3"), title: "쿠폰 등록")
                 
                 Spacer()
                 
-                otherList(icon: Image("icon4"), title: "쿠폰 히스토리")
+                OtherTabList(icon: Image("icon4"), title: "쿠폰 히스토리")
             }
             .padding(.vertical, 16)
         }
@@ -122,25 +122,25 @@ struct OtherView: View {
                 .padding(.bottom, 8)
 
             HStack {
-                otherList(icon: Image("icon5"), title: "스토어 케어")
+                OtherTabList(icon: Image("icon5"), title: "스토어 케어")
                 
                 Spacer()
                 
-                otherList(icon:Image("icon6"), title: "고객의 소리")
+                OtherTabList(icon:Image("icon6"), title: "고객의 소리")
             }
             .padding(.vertical, 16)
             
             HStack {
-                otherList(icon: Image("icon7"), title: "매장 정보")
+                OtherTabList(icon: Image("icon7"), title: "매장 정보")
                 
                 Spacer()
                 
-                otherList(icon: Image("icon8"), title: "반납기 정보")
+                OtherTabList(icon: Image("icon8"), title: "반납기 정보")
             }
             .padding(.vertical, 16)
             
             HStack {
-                otherList(icon: Image("icon9"), title: "마이 스타벅스 리뷰")
+                OtherTabList(icon: Image("icon9"), title: "마이 스타벅스 리뷰")
                 
                 Spacer()
             }
