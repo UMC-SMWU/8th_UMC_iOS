@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppRootView: View {
     @State private var router = NavigationRouter()
-    @State private var viewModel = HomeViewModel()
+    @State private var homeviewModel = HomeViewModel()
     @State private var shopviewModel = ShopViewModel()
     
     var body: some View {
@@ -30,13 +30,13 @@ struct AppRootView: View {
                     case .basetab:
                         BaseTabView()
                             .environment(router)
-                            .environment(viewModel)
+                            .environment(homeviewModel)
                             .environment(shopviewModel)
                             .navigationBarHidden(true)
                     case .coffeedetail:
                         CoffeeDetailView()
                             .environment(router)
-                            .environment(viewModel)
+                            .environment(homeviewModel)
                             .navigationBarHidden(true)
                     case .receipt:
                         ReceiptView()

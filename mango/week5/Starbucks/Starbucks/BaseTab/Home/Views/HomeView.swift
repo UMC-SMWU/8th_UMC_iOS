@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @AppStorage("nickname") private var nickname: String = "(설정 닉네임)"
-    @Environment(HomeViewModel.self) var viewModel
+    @Environment(HomeViewModel.self) var homeviewModel
     @Environment(NavigationRouter.self) private var router
     @State private var showPopup = true
     
@@ -106,10 +106,10 @@ struct HomeView: View {
             ScrollView(.horizontal, content: {
                 
                 LazyHStack(spacing: 16, content: {
-                    ForEach(viewModel.dummyCoffees, id: \.id) { coffee in
+                    ForEach(homeviewModel.dummyCoffees, id: \.id) { coffee in
                         CircleImageCard(model: coffee)
                             .onTapGesture {
-                                viewModel.selectedCoffeeModel = coffee
+                                homeviewModel.selectedCoffeeModel = coffee
                                 router.push(.coffeedetail)
                             }
                     }
@@ -141,7 +141,7 @@ struct HomeView: View {
             ScrollView(.horizontal, content: {
 
                 LazyHStack(spacing: 16, content: {
-                    ForEach(viewModel.dummyNews, id: \.id) { new in
+                    ForEach(homeviewModel.dummyNews, id: \.id) { new in
                         NewsCard(news: new)
                     }
                 })
@@ -209,7 +209,7 @@ struct HomeView: View {
             
             ScrollView(.horizontal, content: {
                 LazyHStack(spacing: 16, content: {
-                    ForEach(viewModel.dummyBreads, id: \.id) { dessert in
+                    ForEach(homeviewModel.dummyBreads, id: \.id) { dessert in
                         CircleImageCard(model: dessert)
                     }
                 })
