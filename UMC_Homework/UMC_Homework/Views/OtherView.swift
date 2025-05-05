@@ -2,89 +2,127 @@ import SwiftUI
 
 struct OtherView: View {
     @ObservedObject var viewModel = OtherViewModel()
-    
+
     var body: some View {
-        VStack(spacing: 20) {
-            // 닉네임과 환영 메시지
-            Text("\(viewModel.nickname)님 환영합니다")
-                .font(.title)
-                .padding()
-
-            HStack(spacing: 20) {
-                /// 별 히스토리 버튼
-                CustomButton(title: "별 히스토리", action: {
-                    print("별 히스토리")
-                })
-                
-                /// 전자 영수증 버튼
-                CustomButton(title: "전자 영수증", action: {
-                    print("전자 영수증")
-                })
-                
-                /// 나만의 메뉴 버튼
-                CustomButton(title: "나만의 메뉴", action: {
-                    print("나만의 메뉴")
-                })
+        VStack(spacing: 0) {
+            /// 상단 섹션
+            HStack {
+                Text("Other")
+                    .font(.mainTextBold24)
+                    .foregroundColor(.black)
+                Spacer()
+                Button(action: {
+                    print("로그아웃")
+                }) {
+                    Image("logout")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                        .foregroundColor(.black)
+                }
             }
-
-            /// Pay, 고객지원 섹션
-            VStack(spacing: 15) {
-                CustomSectionButton(leftImage: "payLogo", text: "쿠폰 등록", action: {
-                    print("스타벅스 카드 등록")
-                })
-                CustomSectionButton(leftImage: "supportLogo", text: "고객지원", action: {
-                    print("쿠폰 등록")
-                })
-            }
+            .padding()
+            .background(Color.white)
             
-            /// 로그아웃 버튼
-            Button(action: {
-                print("로그아웃")
-            }) {
-                Image(systemName: "lock.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(.black)
+            Spacer()
+            
+            /// 나머지
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    // 닉네임과 환영 메시지
+                    Text("(\(viewModel.nickname))님\n환영합니다")
+                        .multilineTextAlignment(.center)
+                        .font(.mainTextSemibold24)
+
+                    // 버튼 섹션
+                    HStack(spacing: 20) {
+                        CustomButton(menuImage: "starHistory", title: "별 히스토리", destination: HomeView())
+                        CustomButton(menuImage: "receipt", title: "전자 영수증", destination: HomeView())
+                        CustomButton(menuImage: "my", title: "나만의 메뉴", destination: HomeView())
+                    }
+
+                    // Pay 섹션
+                    Text("Pay")
+                        .font(.mainTextSemiBold18)
+
+                    HStack(spacing: 10) {
+                        CustomSectionButton(leftImage: "card", text: "스타벅스 카드 등록", action: {})
+                        CustomSectionButton(leftImage: "cardChange", text: "카드 교환권 등록", action: {})
+                    }
+
+                    HStack(spacing: 50) {
+                        CustomSectionButton(leftImage: "coupon", text: "쿠폰 등록", action: {})
+                        CustomSectionButton(leftImage: "conponHistory", text: "쿠폰 히스토리", action: {})
+                    }
+
+                    // 고객지원 섹션
+                    Text("고객지원")
+                        .font(.mainTextSemiBold18)
+
+                    HStack(spacing: 50) {
+                        CustomSectionButton(leftImage: "storeCare", text: "스토어 케어", action: {})
+                        CustomSectionButton(leftImage: "customer", text: "고객의 소리", action: {})
+                    }
+
+                    HStack(spacing: 50) {
+                        CustomSectionButton(leftImage: "storeInfo", text: "매장 정보", action: {})
+                        CustomSectionButton(leftImage: "returnInfo", text: "반납기 정보", action: {})
+                    }
+
+                    HStack(spacing: 10) {
+                        CustomSectionButton(leftImage: "myReview", text: "마이 스타벅스 리뷰", action: {})
+                        Spacer()
+                    }
+                }
+                .padding()
+                .background(.white01)
             }
-            .padding(.top, 50)
         }
-        .padding()
+        .edgesIgnoringSafeArea(.bottom)
     }
-    
-    struct CustomButton: View {
+
+    /// 커스텀 버튼
+    struct CustomButton<Destination: View>: View {
+        var menuImage: String
         var title: String
-        var action: () -> Void
-        
+        var destination: Destination
+
         var body: some View {
-            Button(action: action) {
-                Text(title)
-                    .font(.headline)
-                    .foregroundColor(.black)
-                    .padding()
-                    .cornerRadius(8)
+            NavigationLink(destination: destination) {
+                VStack {
+                    Image(menuImage)
+                        .resizable()
+                        .frame(width: 48, height: 48)
+                        .foregroundColor(.black03)
+                    Text(title)
+                        .font(.mainTextLight14)
+                        .foregroundColor(.black)
+                }
+                .frame(width: 102, height: 108)
+                .padding()
+                .background(.white)
+                .cornerRadius(15)
             }
         }
     }
-    
+
+    /// 커스텀 섹션 버튼
     struct CustomSectionButton: View {
         var leftImage: String
         var text: String
         var action: () -> Void
-        
+
         var body: some View {
             Button(action: action) {
                 HStack {
-                    Image(systemName: leftImage)
+                    Image(leftImage)
                         .resizable()
                         .frame(width: 24, height: 24)
                         .foregroundColor(.black)
                     Text(text)
-                        .font(.headline)
+                        .font(.mainTextSemibold16)
                         .foregroundColor(.black)
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(8)
             }
         }
     }
@@ -95,3 +133,4 @@ struct OtherView_Preview: PreviewProvider {
         OtherView()
     }
 }
+

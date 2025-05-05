@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var viewModel = WhatsNewViewModel()
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -8,9 +10,10 @@ struct HomeView: View {
                 MiddleGroup
                 //MenuGroup
                 PromotionGroup
-                MembershipGroup
+                WhatsNewGroup(viewModel: viewModel)
                 EventGroup
                 BottomGroup
+                BottomBennerGroup
             }
         }
     }
@@ -41,19 +44,21 @@ private var TopGroup: some View {
                         VStack(alignment: .leading) {
                             HStack (alignment: .center) {
                                 Text("11")
-                                // .font()
+                                    .font(.mainTextSemibold16)
+                                    .foregroundColor(.brown02)
                                 Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow) // brown02로 변경
+                                    .foregroundColor(.brown02)
                                 Text("until next Reward")
-                                // .font()
+                                    .font(.mainTextSemibold16)
+                                    .foregroundColor(.brown02)
                             }
                             ProgressView(value: 0.1)
-                                .progressViewStyle(LinearProgressViewStyle(tint: .yellow)) // brown02로 변경
+                                .progressViewStyle(LinearProgressViewStyle(tint: .brown02))
                                 .frame(width: geometry.size.width * 0.5)
                         }
                         .frame(width: 255)
                         Text("1/20")
-                            // .font()
+                            .font(.mainTextSemiBold38)
                     }
                     .padding()
                 }
@@ -74,18 +79,19 @@ struct MenuGroup: View {
     var nickname: String
 
     var body: some View {
-    VStack(alignment: .leading) {
-        Text("\(nickname)님을 위한 추천 메뉴")
-            .font(.headline)
-            .padding(.leading, 16)
+        VStack(alignment: .leading) {
+            Text("\(nickname)님을 위한 추천 메뉴")
+                .font(.headline)
+                .padding(.leading, 16)
 
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 16) {
-                // ForEach(viewModel.recommendedMenus) { menu in
-                    // CircleImageCard(menu: menu)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 16) {
+                    ForEach(Model.recommendedMenus) { menu in
+                        CircleImageCard(menu: menu)
+                    }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
         }
     }
 }
@@ -93,29 +99,66 @@ struct MenuGroup: View {
 /// 프로모션 섹션
 private var PromotionGroup: some View {
     VStack {
-        Text("프로모션 정보")
+        Image(.bannerEvent)
+        Image(.serviceSuscibe)
+    }
+    .padding()
+}
+
+/// What's New 섹션
+struct WhatsNewGroup: View {
+    @ObservedObject var viewModel: WhatsNewViewModel
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("What's New")
+                .font(.mainTextBold24)
+                .padding(.horizontal, 8)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(viewModel.items) { item in
+                        VStack(alignment: .leading) {
+                            Image(item.imageName)
+                                .resizable()
+                                .scaledToFill()
+
+                            Text(item.title)
+                                .font(.subheadline)
+                                .bold()
+                            Text(item.subtitle)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        .frame(width: 200)
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
     }
 }
 
-/// 멤버십 정보 섹션
-private var MembershipGroup: some View {
-    VStack {
-        Text("멤버십 정보")
-    }
-}
-
-/// 이벤트 섹션
+/// 배너 섹션
 private var EventGroup: some View {
-    VStack {
-        Text("이벤트 정보")
-    }
+    Image(.bannerMiddle)
 }
 
-/// 하단 정보 섹션
+/// 하루가 달콤해지는 디저트 섹션
 private var BottomGroup: some View {
     VStack {
         Text("하단 정보")
     }
+}
+
+/// 하단 배너 섹션
+private var BottomBennerGroup: some View {
+    VStack {
+        Image(.bannerColdbrew)
+        Image(.bannerDrink)
+        Image(.serviceSuscibe)
+    }
+    .padding()
 }
 
 struct HomeView_Preview: PreviewProvider {
