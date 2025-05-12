@@ -10,15 +10,18 @@ import SwiftUI
 struct OtherTabList: View {
     let icon: Image
     let title: String
-    
-    init(icon: Image, title: String) {
+    let action: () -> Void
+
+    init(icon: Image, title: String, action: @escaping () -> Void = {}) {
         self.icon = icon
         self.title = title
+        self.action = action
     }
     
     var body: some View {
         Button(action: {
             print(title)
+            action()
         }, label: {
             HStack(spacing: 8) {
                 icon

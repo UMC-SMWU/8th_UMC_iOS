@@ -131,8 +131,10 @@ struct OtherView: View {
             .padding(.vertical, 16)
             
             HStack {
-                OtherTabList(icon: Image("icon7"), title: "매장 정보")
-                
+                OtherTabList(icon: Image("icon7"), title: "매장 정보") {
+                    router.push(.othermap)
+                }
+
                 Spacer()
                 
                 OtherTabList(icon: Image("icon8"), title: "반납기 정보")

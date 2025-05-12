@@ -11,6 +11,8 @@ struct AppRootView: View {
     @State private var router = NavigationRouter()
     @State private var homeviewModel = HomeViewModel()
     @State private var shopviewModel = ShopViewModel()
+    @State private var orderviewModel = OrderViewModel()
+    @State private var storeviewModel = StoreViewModel()
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -32,6 +34,8 @@ struct AppRootView: View {
                             .environment(router)
                             .environment(homeviewModel)
                             .environment(shopviewModel)
+                            .environment(orderviewModel)
+                            .environment(storeviewModel)
                             .navigationBarHidden(true)
                     case .coffeedetail:
                         CoffeeDetailView()
@@ -43,8 +47,14 @@ struct AppRootView: View {
                             .environment(router)
                             .navigationBarHidden(true)
                             .modelContainer(for: ReceiptModel.self)
+                    case .othermap:
+                        OtherMapView()
+                            .environment(router)
+                            .environment(storeviewModel)
+                            .navigationBarHidden(true)
                     }
                 }
         }
+        .environment(LocationManager.shared)
     }
 }

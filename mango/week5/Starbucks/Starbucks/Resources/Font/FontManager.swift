@@ -101,8 +101,16 @@ extension Font {
         return PretendardFont.medium.font(size: 16)
     }
     
+    static var mainTextMedium13: Font {
+        return PretendardFont.medium.font(size: 13)
+    }
+    
     static var mainTextMedium12: Font {
         return PretendardFont.medium.font(size: 12)
+    }
+    
+    static var mainTextMedium10: Font {
+        return PretendardFont.medium.font(size: 10)
     }
 
     // MARK: MainText - Regular

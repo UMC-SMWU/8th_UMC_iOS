@@ -19,7 +19,7 @@ extension Color {
         case brown01, brown02
         
         // MARK: - Gray
-        case gray00, gray01, gray02, gray03, gray04, gray05, gray06, gray07, gray08, gray09, gray10, gray11
+        case gray00, gray01, gray02, gray03, gray04, gray05, gray06, gray07, gray08, gray09, gray10, gray11, gray12, gray13
         
         // MARK: - Green
         case green00, green01, green02, green03, green04
@@ -58,6 +58,8 @@ extension Color {
             case .gray09: return Color("gray09")
             case .gray10: return Color("gray10")
             case .gray11: return Color("gray11")
+            case .gray12: return Color("gray12")
+            case .gray13: return Color("gray13")
 
             case .green00: return Color("green00")
             case .green01: return Color("green01")
@@ -103,6 +105,8 @@ extension Color {
     static let gray09 = StarbucksColor.gray09.value
     static let gray10 = StarbucksColor.gray10.value
     static let gray11 = StarbucksColor.gray10.value
+    static let gray12 = StarbucksColor.gray12.value
+    static let gray13 = StarbucksColor.gray13.value
 
     // MARK: - Green
     static let green00 = StarbucksColor.green00.value

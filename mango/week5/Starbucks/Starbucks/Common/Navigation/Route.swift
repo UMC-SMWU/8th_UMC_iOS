@@ -13,4 +13,5 @@ enum Route: Hashable {
     case basetab
     case coffeedetail
     case receipt
+    case othermap
 }
