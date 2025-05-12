@@ -21,19 +21,6 @@ class StoreViewModel {
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode(StoreFeatureCollection.self, from: data)
 
-//            let stores: [StoreModel] = decoded.features.map { feature in
-//                let prop = feature.properties
-//                let coord = CLLocationCoordinate2D(latitude: prop.latitude, longitude: prop.longitude)
-//                let category = StoreCategory(rawValue: prop.category) ?? .none
-//
-//                return StoreModel(
-//                    name: prop.storeName,
-//                    address: prop.address,
-//                    phone: prop.telephone,
-//                    coordinate: coord,
-//                    category: category
-//                )
-//            }
             let stores: [StoreModel] = decoded.features.map { feature in
                 let prop = feature.properties
                 let coord = CLLocationCoordinate2D(latitude: prop.latitude, longitude: prop.longitude)

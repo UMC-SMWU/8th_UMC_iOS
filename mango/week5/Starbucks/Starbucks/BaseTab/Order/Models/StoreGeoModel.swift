@@ -39,5 +39,5 @@ struct StoreProperties: Codable {
 
 struct StoreGeometry: Codable {
     let type: String
-    let coordinates: [Double] // [longitude, latitude]
+    let coordinates: [Double]
 }

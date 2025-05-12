@@ -10,8 +10,6 @@ import SwiftUI
 struct OrderView: View {
     
     @Namespace private var animation
-//    @State private var selectedTop: TopSegment = .allmenu
-//    @State private var selectedBottom: BottomSegment = .drink
     @Environment(OrderViewModel.self) var orderviewModel
     @State private var showSheet = false
 

@@ -5,51 +5,6 @@
 //  Created by 엄민서 on 4/13/25.
 //
 
-//import SwiftUI
-//
-//struct OrderSheetView: View {
-//    @Environment(NavigationRouter.self) private var router
-//
-//    var body: some View {
-//        topNavigation
-//        
-//        searchBar
-//        
-//        storeSegment
-//    }
-//    
-//    private var topNavigation: some View {
-//        HStack {
-//            Spacer()
-//                .frame(width: 18, height: 17)
-//            Text("매장 설정")
-//                .foregroundStyle(Color.black03)
-//                .font(.mainTextMedium16)
-//                .kerning(-0.05)
-////            Button(label: <#T##() -> Label#>) {
-////                Image("mapicon")
-////                    .frame(width: 18, height: 17)
-////            }
-//        }
-//    }
-//    
-//    private var searchBar: some View {
-//        RoundedRectangle(cornerRadius: 5)
-//            .frame(width:375, height: 27)
-//            .foregroundStyle(Color.gray12)
-//    }
-//    
-//    private var storeSegment: some View {
-//        Text("가까운 매장")
-//            .font(.headline)
-//    }
-//    
-//}
-//
-//#Preview {
-//    OrderSheetView()
-//}
-
 import SwiftUI
 import MapKit
 
@@ -77,23 +32,7 @@ struct OrderSheetView: View {
             storeList
             
         }
-//        .task {
-//            if let current = LocationManager.shared.currentLocation {
-//                await storeViewModel.loadStores(from: current)
-//                region.center = current.coordinate
-//            }
-//        }
-//        .task {
-//            if let current = LocationManager.shared.currentLocation {
-//                await storeViewModel.loadStores(from: current)
-//                region.center = current.coordinate
-//            } else {
-//                print("🚨 현재 위치 파악 불가 ")
-//                let fallback = CLLocation(latitude: 37.551469, longitude: 126.925146)
-//                        await storeViewModel.loadStores(from: fallback)
-//                        region.center = fallback.coordinate
-//                    }
-//                }
+
         .task {
             // 강제 초기화
             _ = LocationManager.shared
