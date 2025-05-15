@@ -2,8 +2,9 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var loginModel: LoginModel = .init()
+    @EnvironmentObject var userManager: UserManager
     @State private var navigationTrue: Bool = false
-        
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -14,7 +15,7 @@ struct LoginView: View {
                 Spacer()
                 mainBottomGroup
             }
-            .padding(.horizontal, 19) 
+            .padding(.horizontal, UIScreen.main.bounds.width * 0.5)
         }
     }
     
@@ -28,13 +29,10 @@ struct LoginView: View {
             
             VStack(alignment: .leading) {
                 Text("안녕하세요.")
-                    //.font(.mainTextExtraBold24)
                 Text("스타벅스입니다.")
-                    //.font(.mainTextExtraBold24)
             }
             
             Text("회원 서비스 이용을 위해 로그인 해주세요")
-                //.font(.mainTextRegular13)
                 .foregroundColor(.gray)
         }
     }
@@ -42,34 +40,32 @@ struct LoginView: View {
     /// 중앙 ID & PW 입력 VStack
     private var mainCenterGroup: some View {
         VStack(alignment: .leading) {
-            /// ID
             VStack(alignment: .leading) {
                 TextField("아이디", text: $loginModel.id)
                     .padding(.vertical, 8)
                     .autocapitalization(.none)
-                
-                /// Divider 색상을 초록색으로 변경
                 Divider()
             }
-            Spacer().frame(height: 47)
+            Spacer().frame(height: 20)
             
-            /// PWD
             VStack(alignment: .leading) {
                 SecureField("비밀번호", text: $loginModel.pwd)
                     .padding(.vertical, 8)
-                
-                /// Divider 색상을 초록색으로 변경
                 Divider()
             }
-            Spacer().frame(height: 47)
+            Spacer().frame(height: 20)
             
             Button(action: {
                 login()
             }) {
                 ZStack {
                     Image(.login)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 70)
                     Text("로그인하기")
                         .foregroundColor(.white)
+                        .bold()
                 }
             }
             .disabled(loginModel.id.isEmpty || loginModel.pwd.isEmpty)
@@ -83,23 +79,44 @@ struct LoginView: View {
                 Text("이메일로 회원가입하기")
                     .underline()
             }
-            
-            Image(.kakaoLogin)
+            Button(action: {
+                initiateKakaoLogin()
+            }) {
+                Image(.kakaoLogin)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 44)
+            }
             Image(.appleLogin)
         }
     }
     
-    // 로그인 처리 함수 (Example)
+    // 로그인 처리 함수
     private func login() {
-        // Implement your login logic here.
-        // For example, check if the id and pwd are correct.
+        let id = loginModel.id
+        let pw = loginModel.pwd
         
-        if !loginModel.id.isEmpty && !loginModel.pwd.isEmpty {
-            // Simulate a successful login
-            print("Login successful!")
-            // Navigate to next screen or perform any other actions
+        if !id.isEmpty && !pw.isEmpty {
+            // 로그인 성공 시 Keychain에 저장
+            KeychainHelper.shared.save(key: "userID", value: id)
+            KeychainHelper.shared.save(key: "password", value: pw)
+            
+            // 로그인 상태 업데이트
+            userManager.login(id: id, pw: pw)
         } else {
-            print("Please enter valid credentials.")
+            print("아이디 또는 비밀번호를 확인하세요.")
+        }
+    }
+    
+    // 카카오 로그인 처리 함수
+    func initiateKakaoLogin() {
+        let clientID = "YOUR_KAKAO_REST_API_KEY"
+        let redirectURI = "yourapp://oauth" // Info.plist에도 이 URI 등록 필수!
+        
+        let authURL = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=\(clientID)&redirect_uri=\(redirectURI)"
+        
+        if let url = URL(string: authURL) {
+            UIApplication.shared.open(url)
         }
     }
 }

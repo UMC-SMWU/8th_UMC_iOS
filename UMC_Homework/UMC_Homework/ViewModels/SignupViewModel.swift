@@ -1,20 +1,35 @@
+//import SwiftUI
+//
+//class SignupViewModel: ObservableObject {
+//    @Published var nickname: String = ""
+//    @Published var email: String = ""
+//    @Published var pwd: String = ""
+//    
+//    // Store user data using @AppStorage for persistence
+//    @AppStorage("userNickname") private var storedNickname: String = ""
+//    @AppStorage("userEmail") private var storedEmail: String = ""
+//    @AppStorage("userPassword") private var storedPassword: String = ""
+//    
+//    // Function to save the signup data to AppStorage
+//    func saveSignupData() {
+//        storedNickname = nickname
+//        storedEmail = email
+//        storedPassword = pwd
+//    }
+//}
+//
+
 import SwiftUI
 
 class SignupViewModel: ObservableObject {
     @Published var nickname: String = ""
     @Published var email: String = ""
     @Published var pwd: String = ""
-    
-    // Store user data using @AppStorage for persistence
-    @AppStorage("userNickname") private var storedNickname: String = ""
-    @AppStorage("userEmail") private var storedEmail: String = ""
-    @AppStorage("userPassword") private var storedPassword: String = ""
-    
-    // Function to save the signup data to AppStorage
+
+    // 회원가입 시 키체인에 저장
     func saveSignupData() {
-        storedNickname = nickname
-        storedEmail = email
-        storedPassword = pwd
+        KeychainHelper.shared.save(key: "userNickname", value: nickname)
+        KeychainHelper.shared.save(key: "userEmail", value: email)
+        KeychainHelper.shared.save(key: "userPassword", value: pwd)
     }
 }
-
