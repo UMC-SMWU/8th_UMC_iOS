@@ -9,8 +9,12 @@ import Foundation
 import SwiftUI
 
 struct OtherView: View {
-    @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
+//    @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
     @Environment(NavigationRouter.self) private var router
+    
+    var nickname: String {
+        KeychainManager.loadSignupModel()?.nickname ?? "닉네임 없음"
+    }
     
     var body: some View {
         VStack {

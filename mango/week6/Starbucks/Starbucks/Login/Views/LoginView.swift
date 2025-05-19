@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
+import KakaoSDKAuth
 
 struct LoginView: View {
     enum LoginField {
         case id
         case pwd
     }
-    @StateObject var viewModel: LoginViewModel = .init()
+
+    @StateObject var viewModel = LoginViewModel()
     @FocusState private var focusedField: LoginField?
     @Environment(NavigationRouter.self) var router
-    
+    @State private var isShowingAlert = false
+
     var body: some View {
         VStack {
             mainTopGroup
@@ -25,6 +29,19 @@ struct LoginView: View {
             mainBottomGroup
         }
         .padding(.horizontal, 19)
+        .onAppear {
+            if let user = KeychainManager.loadSignupModel() {
+                Task {
+                    await viewModel.login(email: user.email, password: user.password)
+                    if viewModel.isLoggedIn {
+                        router.push(.basetab)
+                    }
+                }
+            }
+        }
+        .alert("로그인에 실패했습니다.", isPresented: $isShowingAlert) {
+            Button("확인", role: .cancel) {}
+        }
     }
     
     private var mainTopGroup: some View {
@@ -55,7 +72,7 @@ struct LoginView: View {
     
     private var mainMiddleGroup: some View {
         VStack(alignment: .leading, spacing: 45) {
-            TextField("아이디", text: $viewModel.loginModel.id)
+            TextField("아이디", text: $viewModel.email)
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color.black01)
                 .autocapitalization(.none)
@@ -67,7 +84,7 @@ struct LoginView: View {
                         .offset(x: 0, y: 5)
                 }
             
-            SecureField("비밀번호", text: $viewModel.loginModel.pwd)
+            SecureField("비밀번호", text: $viewModel.password)
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color.black01)
                 .autocapitalization(.none)
@@ -106,6 +123,7 @@ struct LoginView: View {
                     .underline()
             }
             Button(action: {
+                viewModel.kakaoLogin()
                 print("카카오 로그인 버튼 클릭")
             }, label: {
                 HStack {

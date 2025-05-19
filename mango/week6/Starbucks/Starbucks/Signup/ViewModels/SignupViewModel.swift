@@ -6,19 +6,39 @@
 //
 
 import Foundation
-import SwiftUI
 
 class SignupViewModel: ObservableObject {
-    @AppStorage("nickname") private var nickname: String = ""
-    @AppStorage("email") private var email: String = ""
-    @AppStorage("pwd") private var pwd: String = ""
+    @Published var signupModel = SignupModel(nickname: "", email: "", password: "")
     
-    @Published var signupModel: SignupModel = .init(nickname: "mango", email: "mango@example.com", pwd: "mango")
+    func signUp() async -> Bool {
+        guard let url = URL(string: "http://localhost:8080/signup") else {
+            return saveLocally()
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("Application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let encoded = try JSONEncoder().encode(signupModel)
+            request.httpBody = encoded
+            
+            let (_, response) = try await URLSession.shared.data(for: request)
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                KeychainManager.saveSignupModel(signupModel)
+                return true
+            } else {
+                return saveLocally()
+            }
+            
+        } catch {
+            return saveLocally()
+        }
+    }
     
-    public func saveAppStorage() {
-        print("성공적으로 AppStorage에 저장되었습니다")
-        self.nickname = signupModel.nickname
-        self.email = signupModel.email
-        self.pwd = signupModel.pwd
+    private func saveLocally() -> Bool {
+        KeychainManager.saveSignupModel(signupModel)
+        return true
     }
 }

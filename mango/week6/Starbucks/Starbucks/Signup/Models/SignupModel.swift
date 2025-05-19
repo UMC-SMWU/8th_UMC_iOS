@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct SignupModel {
+struct SignupModel: Codable {
     var nickname: String
     var email: String
-    var pwd: String
+    var password: String
 }

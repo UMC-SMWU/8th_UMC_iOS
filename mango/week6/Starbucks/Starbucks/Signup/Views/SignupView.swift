@@ -25,9 +25,8 @@ struct SignupView: View {
                     print("")
                 }
             )
-        }
-        .padding(.bottom, 130)
-        VStack {
+            .padding(.bottom, 130)
+            
             mainMiddleGroup
             Spacer()
             createButton
@@ -38,7 +37,7 @@ struct SignupView: View {
     private var isFormValid: Bool {
         !viewModel.signupModel.nickname.isEmpty &&
         !viewModel.signupModel.email.isEmpty &&
-        !viewModel.signupModel.pwd.isEmpty
+        !viewModel.signupModel.password.isEmpty
     }
     
     private var mainMiddleGroup: some View {
@@ -65,8 +64,8 @@ struct SignupView: View {
                         .background(Color.gray00)
                         .offset(x: 0, y: 9)
                 }
-            
-            SecureField("비밀번호", text: $viewModel.signupModel.pwd)
+
+            SecureField("비밀번호", text: $viewModel.signupModel.password)
                 .font(.mainTextRegular18)
                 .foregroundStyle(Color.black01)
                 .autocapitalization(.none)
@@ -82,8 +81,14 @@ struct SignupView: View {
     private var createButton: some View {
         Button(action: {
             if isFormValid {
-                viewModel.saveAppStorage()
-                router.pop()
+                Task {
+                    let success = await viewModel.signUp()
+                    if success {
+                        router.pop()
+                    } else {
+                        showAlert = true
+                    }
+                }
             } else {
                 showAlert = true
             }
